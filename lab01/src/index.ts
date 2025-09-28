@@ -25,4 +25,4 @@ function calculate(expression: MatchResult):number
 }
 
 
-console.log(evaluate("(1+2)*(3+(4+5))"));
+console.log(evaluate("((1+24))   *    (3+(4+5))"));

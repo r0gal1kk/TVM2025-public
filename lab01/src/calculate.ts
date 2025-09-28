@@ -23,6 +23,12 @@ const addMulCalc = {
         }
         return product;
     },
+    Primary(num) {
+        return num.calculate();
+    },
+    PrimaryExpr(open, expr, close) {
+        return expr.calculate();
+    },
     number(chars) {
         return parseInt(this.sourceString);
     }

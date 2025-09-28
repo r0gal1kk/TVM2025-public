@@ -12,7 +12,8 @@
     "moveJs": "cp src/*.ohm-bundle.js out || copy src\\*.ohm-bundle.js out",
     "copyTs": "cp src/*.ohm-bundle.d.ts out || copy src\\*.ohm-bundle.d.ts out",
     "build": "pnpm ohm generateBundles --withTypes src/*.ohm && tsc --build && pnpm moveJs && pnpm copyTs ",
-    "test": "pnpm build && pnpm jest . -c ../../jest.config.js"
+    "test": "pnpm build && pnpm jest . -c ../../jest.config.js",
+    "ohm": "ohm generateBundles lab*/src/*.ohm"
   },
   "keywords": [],
   "author": "",

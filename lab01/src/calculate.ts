@@ -8,13 +8,20 @@ const addMulCalc = {
     Expr(expr) {
       return expr.calculate();
     },
-    AddExpr(firstNumber, pluses, otherNumbers) {
+    AddExpr(firstNumber, ops, otherNumbers) {
       let sum = firstNumber.calculate();
-      for (let i = 0; i < pluses.numChildren; i++) {
+      for (let i = 0; i < ops.numChildren; i++) {
           let nextNumber = otherNumbers.child(i);
           sum += nextNumber.calculate();
       }
       return sum;
+    },
+    MulExpr(firstNumber, ops, otherNumbers) {
+        let product = firstNumber.calculate();
+        for (let i = 0; i < ops.numChildren; i++) {
+            product *= otherNumbers.child(i).calculate();
+        }
+        return product;
     },
     number(chars) {
         return parseInt(this.sourceString);

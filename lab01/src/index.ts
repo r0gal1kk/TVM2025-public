@@ -14,7 +14,7 @@ function parse(content: string): MatchResult
 {
     const match = grammar.match(content);
     if (match.failed()) {
-        throw new SyntaxError(match.message || "Syntax error");
+        throw new SyntaxError(match.message);
     }
     return match;
 }
@@ -25,4 +25,4 @@ function calculate(expression: MatchResult):number
 }
 
 
-console.log(evaluate("1+2+3+4"));
+console.log(evaluate("1+2*3"));

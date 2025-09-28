@@ -1,5 +1,6 @@
 AddMul {
    Expr = AddExpr
-   AddExpr = number ("+" number)*
+   AddExpr = MulExpr ("+" MulExpr)*
+   MulExpr = number ("*" number)*
    number = digit+
 }

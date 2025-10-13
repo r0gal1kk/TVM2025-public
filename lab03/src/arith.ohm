@@ -3,11 +3,12 @@ Arithmetic {
     Sub = NonemptyListOf<Mul, "-">
     Mul = NonemptyListOf<Div, "*">
     Div = NonemptyListOf<Primary, "/">
+
     Primary =
-    | "(" Sum ")" -- parenthesis
-    | "-" Primary -- unaryMin
-    | number
+        | "(" Sum ")" -- parenthesis
+        | "-" Primary -- unaryMin
+        | number
     number =
-    | digit+ --number
-    | letter+ --variable
+        | digit+ --number
+        | letter+ --variable
 }

@@ -1,3 +1,14 @@
 Arithmetic {
-    // write rules here
+    Sum = NonemptyListOf<Sub, "+">
+    Sub = NonemptyListOf<Mul, "-">
+    Mul = NonemptyListOf<Div, "*">
+    Div = NonemptyListOf<Primary, "/">
+
+    Primary =
+        | "(" Sum ")" -- parenthesis
+        | "-" Primary -- unaryMin
+        | number
+    number =
+        | digit+ --number
+        | letter+ --variable
 }

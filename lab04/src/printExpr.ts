@@ -17,12 +17,10 @@ function needsParens(child: Expr, parentPrecedence: number, isRight: boolean = f
 
     const childPrecedence = PRECEDENCE[child.type];
 
-    // Если приоритет ребенка ниже родителя - нужны скобки
     if (childPrecedence < parentPrecedence) {
         return true;
     }
 
-    // Если приоритеты равны - проверяем ассоциативность
     if (childPrecedence === parentPrecedence) {
         // Для правых операндов всегда нужны скобки при равных приоритетах
         if (isRight) {

@@ -7,11 +7,13 @@ export interface VariableExpr {
     type: 'variable';
     name: string;
 }
-
-export interface AddExpr {
-    type: 'add';
+export interface BinExpr {
     left: Expr;
     right: Expr;
+}
+
+export interface AddExpr extends  BinExpr{
+    type: 'add';
 }
 
 export interface SubExpr {

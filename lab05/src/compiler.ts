@@ -9,6 +9,7 @@ export function getVariables(e: Expr): string[] {
     function collectVars(expr: Expr): void {
         switch (expr.type) {
             case 'variable':
+                console.log('Found variable:', expr.name); // ОТЛАДКА
                 variables.add(expr.name);
                 break;
             case 'add':
@@ -66,11 +67,16 @@ function wasm(e: Expr, args: string[]): Op<I32> {
 
             case 'neg':
                 return i32.mul(compile(expr.argument), i32.const(-1) as Op<I32>) as Op<I32>;
-
             case 'paren':
-                return compile(expr.argument);
+                const innerExpr = expr.argument;
+                if (innerExpr.type === 'number' ||
+                    innerExpr.type === 'variable' ||
+                    innerExpr.type === 'mul' ||
+                    innerExpr.type === 'div') {
+                    return compile(innerExpr);
+                }
+                return compile(innerExpr);
         }
     }
-
     return compile(e);
 }

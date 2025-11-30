@@ -50,3 +50,5 @@ test/*.js
 # Manually-generated ohm
 lab08/src/funny.ohm
 lab10/src/funnier.ohm
+# wasm temporaries
+tmp 
